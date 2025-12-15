@@ -2,3 +2,6 @@ body {
     background-color: #3d3d3d;
     color: gray;
 }
+p {
+    font-family: 'Courier New', Courier, monospace;
+}

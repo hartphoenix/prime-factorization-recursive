@@ -16,12 +16,27 @@ function primeFactorsOf(x, y = null, z = 2) {
   }
 }
 
-btnEl.addEventListener("click", function(){
-  let y = primeFactorsOf(Number(inputEl.value))
-  let factors = "["
-  for (let i=0;i<y.length-1;i++){
-    factors += y[i] + ", "
+function uniques(array) {
+  let list = [];
+  for (let item of array) {
+    if (!list.includes(item)) {
+      list.push(item);
+    }
   }
-  factors += y[y.length-1]+"]"
-  outputEl.innerHTML = factors
+  return list;
+}
+
+function bracket(y) {
+  let brackExp = "["
+  for (let i=0;i<y.length-1;i++){
+    brackExp += y[i] + ", "
+  }
+  brackExp += y[y.length-1]+"]"
+  return brackExp
+}
+
+btnEl.addEventListener("click", function(){
+  let rawFactors = primeFactorsOf(Number(inputEl.value))
+  outputEl.innerHTML = `Raw Factors: ${bracket(rawFactors)}<br>
+                        Uniques: ${bracket(uniques(rawFactors))}`
 })
