@@ -2,7 +2,8 @@ const inputEl = document.getElementById("input-el")
 const btnEl = document.getElementById("btn-el")
 const outputEl = document.getElementById("output-el")
 
-function primeFactorsOf(x, y = [], z = 2) {
+function primeFactorsOf(x, y = null, z = 2) {
+  if (y === null) {y = []}
   if (x % z == 0) {
     y.push(z)
     x /= z
