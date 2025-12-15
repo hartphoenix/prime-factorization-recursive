@@ -8,13 +8,12 @@ function primeFactorsOf(x, y = [], z = 2) {
     x /= z
     return primeFactorsOf(x,y,z)
   } else if (x > 1) {
-    z++
+    z += (z === 2 ? 1 : 2)
     return primeFactorsOf(x,y,z)
   } else {
     return y
   }
 }
-console.log(primeFactorsOf(56))
 
 btnEl.addEventListener("click", function(){
   let y = primeFactorsOf(Number(inputEl.value))
